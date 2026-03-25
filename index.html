@@ -1020,15 +1020,22 @@
   let show=false;
   let f=document.querySelector(".pay-pal");
 
-  const giveForm=()=>{
-    show=!show;
+ const giveForm = () => {
+  show = !show;
 
-    if(show){
-      f.style.display="block"
-    }else{
-      f.style.display="none"
-    }
+  if (show) {
+    f.style.display = "block";
+
+    // Auto scroll to payment
+    f.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    // Optional: highlight effect
+    f.style.transition = "all 0.4s ease";
+    f.style.boxShadow = "0 0 20px rgba(212,168,67,0.6)";
+  } else {
+    f.style.display = "none";
   }
+};
   // Nav scroll effect
   window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
